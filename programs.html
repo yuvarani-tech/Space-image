@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs | SPACE — A Life Design Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ===== PROGRAMS PAGE SPECIFIC ===== */
+.prog-section {
+  padding: 72px 0;
+  border-bottom: 1.5px dashed rgba(212,160,23,0.22);
+}
+.prog-section:last-of-type { border-bottom: none; }
+
+.prog-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.prog-inner.reverse { direction: rtl; }
+.prog-inner.reverse > * { direction: ltr; }
+
+/* image side */
+.prog-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.prog-img-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  background: linear-gradient(160deg, var(--beige), var(--cream));
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+}
+.prog-img-wrap:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: var(--shadow-lift);
+}
+.prog-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.55s ease;
+}
+.prog-img-wrap:hover img { transform: scale(1.08); }
+
+/* gold shimmer badge on image */
+.prog-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,160,23,0) 60%, rgba(212,160,23,0.18) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.prog-img-wrap:hover::after { opacity: 1; }
+
+/* content side */
+.prog-content { }
+.prog-icon-badge {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 20px;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.prog-section:hover .prog-icon-badge { transform: rotate(-8deg) scale(1.1); }
+
+.prog-content h2 {
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  margin-bottom: 14px;
+  color: var(--navy);
+}
+.prog-content p {
+  color: rgba(15,23,42,0.72);
+  line-height: 1.75;
+  margin-bottom: 22px;
+  font-size: 0.97rem;
+}
+.prog-content ul { list-style: none; margin-bottom: 24px; }
+.prog-content li {
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 8px;
+  color: rgba(15,23,42,0.70);
+  font-size: 0.92rem;
+}
+.prog-content li::before {
+  content: '✦';
+  position: absolute; left: 0;
+  color: var(--gold); font-size: 0.7rem; top: 5px;
+}
+
+@media (max-width: 860px) {
+  .prog-inner { grid-template-columns: 1fr; }
+  .prog-inner.reverse { direction: ltr; }
+  .prog-imgs { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .prog-imgs { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/space-logo.png" alt="SPACE Logo">
+      <span class="nav-logo-text">SPACE<span>A Life Design Studio</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="programs.html" class="active">Programs</a>
+      <a href="partner.html">Partner</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About SPACE</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn--gold desktop-only" data-open-modal>Book a Session</button>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<nav class="mobile-drawer">
+  <a href="index.html">Home</a>
+  <a href="explore.html">Explore</a>
+  <a href="programs.html">Programs</a>
+  <a href="partner.html">Partner</a>
+  <a href="resources.html">Resources</a>
+  <a href="about.html">About SPACE</a>
+  <button class="btn btn--gold btn--block" data-open-modal style="margin-top:10px;">Book a Session</button>
+</nav>
+
+<section class="page-hero">
+  <p class="eyebrow" style="justify-content:center;display:flex;">Better experienced than explained</p>
+  <h1>Our Programs</h1>
+  <p>Real life doesn't have multiple-choice answers. That's why SPACE offers experiences designed to meet you wherever you are.</p>
+</section>
+
+<!-- ONE-TO-ONE -->
+<section class="section section--cream prog-section">
+  <div class="container">
+    <div class="prog-inner reveal">
+      <div class="prog-imgs reveal-stagger">
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-one2one-1.png" alt="One-to-one session">
+        </div>
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-one2one-2.png" alt="Personal session">
+        </div>
+      </div>
+      <div class="prog-content">
+        <div class="prog-icon-badge">👤</div>
+        <h2>One-to-One Experiences</h2>
+        <p>Personal, focused sessions designed around your specific questions, challenges, and goals. A confidential space to be heard and to think out loud with someone trained to ask better questions.</p>
+        <ul>
+          <li>Fully confidential and judgment-free</li>
+          <li>Tailored to your unique situation</li>
+          <li>Flexible session formats available</li>
+        </ul>
+        <button class="btn btn--gold btn--sm" data-open-modal>Book a Session</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP EXPERIENCES -->
+<section class="section section--beige prog-section">
+  <div class="container">
+    <div class="prog-inner reverse reveal">
+      <div class="prog-imgs reveal-stagger">
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-group-1.png" alt="Group session">
+        </div>
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-group-2.png" alt="Group experience">
+        </div>
+      </div>
+      <div class="prog-content">
+        <div class="prog-icon-badge">👥</div>
+        <h2>Group Experiences</h2>
+        <p>Small, guided group sessions where shared experiences become a source of insight. Learn alongside others navigating similar questions, in a space built on trust and confidentiality.</p>
+        <ul>
+          <li>Learn through shared human experiences</li>
+          <li>Curated small groups for deeper connection</li>
+          <li>Guided by trained SPACE facilitators</li>
+        </ul>
+        <button class="btn btn--gold btn--sm" data-open-modal>Book a Session</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section class="section section--cream prog-section">
+  <div class="container">
+    <div class="prog-inner reveal">
+      <div class="prog-imgs reveal-stagger">
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-workshop-1.jpg" alt="Workshop session">
+        </div>
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-workshop-2.jpg" alt="Workshop activity">
+        </div>
+      </div>
+      <div class="prog-content">
+        <div class="prog-icon-badge">🎤</div>
+        <h2>Workshops</h2>
+        <p>Interactive sessions for schools, colleges, organizations, and communities — built around real-life skills like emotional awareness, communication, and decision-making.</p>
+        <ul>
+          <li>Customized for schools, colleges & organizations</li>
+          <li>Hands-on, experiential learning format</li>
+          <li>Skills that apply immediately to real life</li>
+        </ul>
+        <button class="btn btn--gold btn--sm" data-open-modal>Book a Session</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENTS -->
+<section class="section section--beige prog-section">
+  <div class="container">
+    <div class="prog-inner reverse reveal">
+      <div class="prog-imgs reveal-stagger">
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-assess-1.jpg" alt="Assessment tools">
+        </div>
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-assess-2.jpg" alt="Assessment process">
+        </div>
+      </div>
+      <div class="prog-content">
+        <div class="prog-icon-badge">📊</div>
+        <h2>Assessments</h2>
+        <p>Structured tools that help bring clarity to patterns you may sense but haven't named — designed to inform deeper conversations, not to label or box you in.</p>
+        <ul>
+          <li>Evidence-based, human-centered tools</li>
+          <li>Results discussed, never just delivered</li>
+          <li>Designed to open doors, not close them</li>
+        </ul>
+        <button class="btn btn--gold btn--sm" data-open-modal>Book a Session</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="section section--cream prog-section" style="border-bottom:none;">
+  <div class="container">
+    <div class="prog-inner reveal">
+      <div class="prog-imgs reveal-stagger">
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-community-1.jpg" alt="Community experience">
+        </div>
+        <div class="prog-img-wrap">
+          <img src="assets/imgs/prog-community-2.jpg" alt="Community gathering">
+        </div>
+      </div>
+      <div class="prog-content">
+        <div class="prog-icon-badge">🌍</div>
+        <h2>Community Experiences</h2>
+        <p>Open, communal spaces where people come together around shared questions — building connection and belonging beyond the one-on-one setting.</p>
+        <ul>
+          <li>Open to all — no prior experience needed</li>
+          <li>Built around belonging and shared growth</li>
+          <li>A place where no one navigates alone</li>
+        </ul>
+        <button class="btn btn--gold btn--sm" data-open-modal>Book a Session</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--beige" style="padding-top:0;">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Some things are better experienced than explained.</h2>
+      <p>Whichever format feels right, the first step is the same — a conversation.</p>
+      <button class="btn btn--gold" data-open-modal>Book a Session</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/space-logo.png" alt="SPACE Logo">
+      <div>
+        <h4>SPACE</h4>
+        <p>A Life Design Studio. Enter · Explore · Evolve.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/space_a_life_design_studio?igsh=MWx4emd3MTNnZ3F0ag==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/spacefordreams/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919597643455?text=Hello%20SPACE,%20I%20would%20like%20to%20book%20a%20session." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:spacealifedesignstudio@gmail.com">spacealifedesignstudio@gmail.com</a></li>
+        <li><a href="tel:+919597643455">+91 9597643455</a></li>
+        <li><a href="#" data-open-modal>Book a Session</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© SPACE – A Life Design Studio</span>
+    <span>Enter · Explore · Evolve</span>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<a href="#" class="float-book-btn" data-open-modal aria-label="Book a Session" title="Book a Session">📅</a>
+
+<div class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <h3>Book a Session</h3>
+    <p class="modal-sub">Take the first step. We'll take it from there.</p>
+    <div class="form-fields">
+      <form id="booking-form" novalidate>
+        <div class="form-group"><label for="book-name">Name</label><input type="text" id="book-name" placeholder="Your full name"><span class="form-error">Please enter your name.</span></div>
+        <div class="form-group"><label for="book-email">Email</label><input type="email" id="book-email" placeholder="you@example.com"><span class="form-error">Please enter a valid email.</span></div>
+        <div class="form-group"><label for="book-phone">Phone</label><input type="tel" id="book-phone" placeholder="+91 9597643455"><span class="form-error">Please enter a valid phone number.</span></div>
+        <div class="form-group"><label for="book-session">Session Type</label><select id="book-session"><option value="">Select a session type</option><option value="one-to-one">One-to-One Experience</option><option value="group">Group Experience</option><option value="workshop">Workshop</option><option value="assessment">Assessment</option><option value="community">Community Experience</option></select><span class="form-error">Please select a session type.</span></div>
+        <div class="form-group"><label for="book-message">Message</label><textarea id="book-message" placeholder="Tell us a little about what's on your mind..."></textarea><span class="form-error">Please share a short message.</span></div>
+        <div class="modal-actions">
+          <button type="button" id="ask-me-btn" class="btn btn--outline">Ask Me</button>
+          <button type="button" id="call-me-btn" class="btn btn--outline">Call Me</button>
+        </div>
+        <button type="submit" class="btn btn--gold btn--block" style="margin-top:14px;">Send Request</button>
+      </form>
+    </div>
+    <div class="form-success" style="display:none;"><span class="icon">🌱</span><h3>Thank you.</h3><p style="color:rgba(15,23,42,0.65);">Your message has been received. Someone from SPACE will reach out to you shortly.</p></div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

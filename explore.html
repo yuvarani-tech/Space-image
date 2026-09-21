@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore | SPACE — A Life Design Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ===== EXPLORE PAGE SPECIFIC ===== */
+.exp-section {
+  padding: 72px 0;
+  border-bottom: 1.5px dashed rgba(212,160,23,0.25);
+  position: relative;
+}
+.exp-section:last-of-type { border-bottom: none; }
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+.exp-header .exp-icon {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.exp-section:hover .exp-icon { transform: rotate(-8deg) scale(1.08); }
+
+/* 2-image row */
+.exp-img-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+.exp-img-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  background: linear-gradient(160deg, var(--beige), var(--cream));
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+}
+.exp-img-wrap:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lift);
+}
+.exp-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.55s ease;
+}
+.exp-img-wrap:hover img { transform: scale(1.06); }
+
+/* content body */
+.exp-body {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 32px 36px;
+  box-shadow: var(--shadow-soft);
+  border-left: 4px solid var(--gold);
+}
+.exp-body p { color: rgba(15,23,42,0.75); margin-bottom: 14px; line-height: 1.75; }
+.exp-body ul { margin: 16px 0 0; padding-left: 4px; }
+.exp-body li {
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+  color: rgba(15,23,42,0.72);
+}
+.exp-body li::before {
+  content: '✦';
+  position: absolute; left: 0;
+  color: var(--gold); font-size: 0.75rem; top: 5px;
+}
+.exp-cta { margin-top: 24px; }
+
+@media (max-width: 640px) {
+  .exp-img-duo { grid-template-columns: 1fr; gap: 14px; }
+  .exp-body { padding: 22px 20px; }
+  .exp-header { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/space-logo.png" alt="SPACE Logo">
+      <span class="nav-logo-text">SPACE<span>A Life Design Studio</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="explore.html" class="active">Explore</a>
+      <a href="programs.html">Programs</a>
+      <a href="partner.html">Partner</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About SPACE</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn--gold desktop-only" data-open-modal>Book a Session</button>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<nav class="mobile-drawer">
+  <a href="index.html">Home</a>
+  <a href="explore.html">Explore</a>
+  <a href="programs.html">Programs</a>
+  <a href="partner.html">Partner</a>
+  <a href="resources.html">Resources</a>
+  <a href="about.html">About SPACE</a>
+  <button class="btn btn--gold btn--block" data-open-modal style="margin-top:10px;">Book a Session</button>
+</nav>
+
+<section class="page-hero">
+  <p class="eyebrow" style="justify-content:center;display:flex;">Five doorways in</p>
+  <h1>Explore SPACE</h1>
+  <p>Real life doesn't have multiple-choice answers — but it does have a place to start. Choose what feels closest to you today.</p>
+</section>
+
+<!-- ===== SELF AWARENESS ===== -->
+<section class="container exp-section reveal" id="self">
+  <div class="exp-header">
+    <div class="exp-icon">🧠</div>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin:0;">Self Awareness</h2>
+  </div>
+  <div class="exp-img-duo reveal-stagger">
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-self-1.jpg" alt="Self awareness - reflection">
+    </div>
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-self-2.jpg" alt="Self awareness - meditation">
+    </div>
+  </div>
+  <div class="exp-body">
+    <p>Self awareness is the foundation everything else is built on. Before you can manage your emotions, communicate clearly, or make confident decisions, you need to understand what's actually happening within you.</p>
+    <p>Most of us go through life reacting — to people, to pressure, to old patterns we never chose. Self awareness is the practice of pausing long enough to notice: what am I feeling, why am I feeling it, and is this reaction actually mine, or inherited from somewhere else?</p>
+    <p>At SPACE, this isn't about overthinking or analysing yourself into a corner. It's about building a clearer, kinder relationship with your own mind — one honest question at a time.</p>
+    <ul>
+      <li>Understanding your emotional patterns and triggers</li>
+      <li>Identifying values that actually guide your decisions</li>
+      <li>Recognising the stories you tell yourself, and which ones are true</li>
+      <li>Building the habit of honest self-reflection</li>
+    </ul>
+    <div class="exp-cta"><a href="programs.html" class="btn btn--gold btn--sm">Explore Self</a></div>
+  </div>
+</section>
+
+<!-- ===== RELATIONSHIPS ===== -->
+<section class="container exp-section reveal" id="relationships">
+  <div class="exp-header">
+    <div class="exp-icon">❤️</div>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin:0;">Relationships</h2>
+  </div>
+  <div class="exp-img-duo reveal-stagger">
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-relationships-1.jpg" alt="Relationships - connection">
+    </div>
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-relationships-2.jpg" alt="Relationships - understanding">
+    </div>
+  </div>
+  <div class="exp-body">
+    <p>Every relationship — romantic, familial, platonic, professional — runs into the same basic challenge: two different people, two different histories, trying to understand each other in real time.</p>
+    <p>SPACE helps people navigate the relationships that matter most. Not by offering a script for the "right" way to communicate, but by helping you understand your own patterns of connection, conflict, and care — and how they meet someone else's.</p>
+    <p>Whether you're working through a recurring conflict, trying to understand a loved one better, or simply wanting deeper, more honest connection — this is a space to slow down and look closely.</p>
+    <ul>
+      <li>Understanding communication and conflict patterns</li>
+      <li>Navigating boundaries with care, not guilt</li>
+      <li>Building empathy without losing yourself</li>
+      <li>Repairing and strengthening important relationships</li>
+    </ul>
+    <div class="exp-cta"><a href="programs.html" class="btn btn--gold btn--sm">Explore Relationships</a></div>
+  </div>
+</section>
+
+<!-- ===== CAREER & EDUCATION ===== -->
+<section class="container exp-section reveal" id="career">
+  <div class="exp-header">
+    <div class="exp-icon">🎯</div>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin:0;">Career & Education</h2>
+  </div>
+  <div class="exp-img-duo reveal-stagger">
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-career-1.jpg" alt="Career - learning">
+    </div>
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-career-2.jpg" alt="Career - growth">
+    </div>
+  </div>
+  <div class="exp-body">
+    <p>A resume tells what you do. Not who you are. Yet so many of us are asked to choose a career path, a college major, or a next step — long before we've had the chance to actually understand ourselves.</p>
+    <p>SPACE helps students, young adults, and professionals approach career and education decisions with more clarity and less panic. This isn't about finding "the one right path" — it's about building the self-awareness to make decisions you won't have to second-guess for the next ten years.</p>
+    <p>We work with the real questions: What do I actually want? What am I good at versus what I think I should be good at? How do I handle the pressure of expectations — from family, from society, from myself?</p>
+    <ul>
+      <li>Clarifying strengths, interests, and values</li>
+      <li>Navigating career transitions and decisions with confidence</li>
+      <li>Managing pressure and expectations around success</li>
+      <li>Building purpose-driven, not just resume-driven, choices</li>
+    </ul>
+    <div class="exp-cta"><a href="programs.html" class="btn btn--gold btn--sm">Explore Career & Education</a></div>
+  </div>
+</section>
+
+<!-- ===== FAMILY & PARENTING ===== -->
+<section class="container exp-section reveal" id="family">
+  <div class="exp-header">
+    <div class="exp-icon">👨‍👩‍👧</div>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin:0;">Family & Parenting</h2>
+  </div>
+  <div class="exp-img-duo reveal-stagger">
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-family-1.jpg" alt="Family - parenting">
+    </div>
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-family-2.jpg" alt="Family - connection">
+    </div>
+  </div>
+  <div class="exp-body">
+    <p>Raising humans is advanced-level life. No one hands you a manual when you become a parent — and the family you grew up in shapes you in ways you're often only half aware of.</p>
+    <p>SPACE supports parents trying their best, and families trying to understand each other better. From the everyday friction of communication across generations, to bigger questions about expectations, boundaries, and love — this is a space to navigate family life with more patience and less guilt.</p>
+    <p>We also work with the family patterns that quietly repeat — helping you notice what you want to carry forward, and what you'd rather leave behind.</p>
+    <ul>
+      <li>Understanding generational and family communication patterns</li>
+      <li>Navigating parenting pressure and expectations with self-compassion</li>
+      <li>Strengthening connection across different life stages</li>
+      <li>Breaking unhelpful cycles, intentionally</li>
+    </ul>
+    <div class="exp-cta"><a href="programs.html" class="btn btn--gold btn--sm">Explore Family & Parenting</a></div>
+  </div>
+</section>
+
+<!-- ===== GROWTH & PURPOSE ===== -->
+<section class="container exp-section reveal" id="growth" style="border-bottom:none;">
+  <div class="exp-header">
+    <div class="exp-icon">🌱</div>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin:0;">Growth & Purpose</h2>
+  </div>
+  <div class="exp-img-duo reveal-stagger">
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-growth-1.jpg" alt="Growth - purpose">
+    </div>
+    <div class="exp-img-wrap">
+      <img src="assets/imgs/exp-growth-2.jpg" alt="Growth - evolving">
+    </div>
+  </div>
+  <div class="exp-body">
+    <p>You're a work in progress. That's good news — because it means nothing about who you are right now is permanent or final.</p>
+    <p>SPACE supports the people who want to keep growing — even when life feels stable, even when nothing is technically "wrong." Growth isn't only for moments of crisis. Sometimes it's simply about wanting to understand yourself a little more deeply, or live with a little more intention.</p>
+    <p>This is where we explore purpose: not as a single grand calling, but as an ongoing, evolving answer to the question, "who am I becoming?"</p>
+    <ul>
+      <li>Building sustainable habits of reflection and growth</li>
+      <li>Exploring purpose beyond achievement and approval</li>
+      <li>Staying grounded during change and uncertainty</li>
+      <li>Designing a life with intention, not autopilot</li>
+    </ul>
+    <div class="exp-cta"><a href="programs.html" class="btn btn--gold btn--sm">Explore Growth & Purpose</a></div>
+  </div>
+</section>
+
+<hr class="divider-rule" style="margin-top:0;">
+
+<section class="section section--beige" style="padding-top:0;">
+  <div class="container" style="text-align:center;max-width:640px;">
+    <h2 class="section-title" style="margin:0 auto 16px;">Not sure where to start?</h2>
+    <p style="color:rgba(15,23,42,0.72);margin-bottom:28px;">That's completely alright. Most people don't arrive with a clear category — they arrive with a feeling. Book a session and we'll help you figure out exactly where to begin.</p>
+    <button class="btn btn--gold" data-open-modal>Book a Session</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/space-logo.png" alt="SPACE Logo">
+      <div>
+        <h4>SPACE</h4>
+        <p>A Life Design Studio. Enter · Explore · Evolve.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/space_a_life_design_studio?igsh=MWx4emd3MTNnZ3F0ag==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/spacefordreams/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919597643455?text=Hello%20SPACE,%20I%20would%20like%20to%20book%20a%20session." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:spacealifedesignstudio@gmail.com">spacealifedesignstudio@gmail.com</a></li>
+        <li><a href="tel:+919597643455">+91 9597643455</a></li>
+        <li><a href="#" data-open-modal>Book a Session</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© SPACE – A Life Design Studio</span>
+    <span>Enter · Explore · Evolve</span>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<a href="#" class="float-book-btn" data-open-modal aria-label="Book a Session" title="Book a Session">📅</a>
+
+<div class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <h3>Book a Session</h3>
+    <p class="modal-sub">Take the first step. We'll take it from there.</p>
+    <div class="form-fields">
+      <form id="booking-form" novalidate>
+        <div class="form-group"><label for="book-name">Name</label><input type="text" id="book-name" placeholder="Your full name"><span class="form-error">Please enter your name.</span></div>
+        <div class="form-group"><label for="book-email">Email</label><input type="email" id="book-email" placeholder="you@example.com"><span class="form-error">Please enter a valid email.</span></div>
+        <div class="form-group"><label for="book-phone">Phone</label><input type="tel" id="book-phone" placeholder="+91 9597643455"><span class="form-error">Please enter a valid phone number.</span></div>
+        <div class="form-group"><label for="book-session">Session Type</label><select id="book-session"><option value="">Select a session type</option><option value="one-to-one">One-to-One Experience</option><option value="group">Group Experience</option><option value="workshop">Workshop</option><option value="assessment">Assessment</option><option value="community">Community Experience</option></select><span class="form-error">Please select a session type.</span></div>
+        <div class="form-group"><label for="book-message">Message</label><textarea id="book-message" placeholder="Tell us a little about what's on your mind..."></textarea><span class="form-error">Please share a short message.</span></div>
+        <div class="modal-actions">
+          <button type="button" id="ask-me-btn" class="btn btn--outline">Ask Me</button>
+          <button type="button" id="call-me-btn" class="btn btn--outline">Call Me</button>
+        </div>
+        <button type="submit" class="btn btn--gold btn--block" style="margin-top:14px;">Send Request</button>
+      </form>
+    </div>
+    <div class="form-success" style="display:none;"><span class="icon">🌱</span><h3>Thank you.</h3><p style="color:rgba(15,23,42,0.65);">Your message has been received. Someone from SPACE will reach out to you shortly.</p></div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
